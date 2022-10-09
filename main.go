@@ -25,7 +25,7 @@ func main() {
 	}
 	// fild StackB
 	*stackB = make([]int, 0)
-
+	isDuplicate(*stackA)
 	// test:   go run . 2 1 3 6 8 5
 	funcSw.SA()
 	funcSw.PB()
@@ -38,4 +38,14 @@ func main() {
 	funcSw.PA()
 	fmt.Println(*stackA, *stackB)
 	// result : [1 2 3 5 6 8] []
+}
+
+func isDuplicate(arr []int) {
+	dict := make(map[int]int)
+	for _, num := range arr {
+		dict[num]++
+		if dict[num] > 1 {
+			log.Fatal("Error Repetition")
+		}
+	}
 }

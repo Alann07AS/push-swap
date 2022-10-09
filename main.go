@@ -9,22 +9,6 @@ import (
 	"pushSwap/funcSw"
 )
 
-const (
-	pa  = "pa"
-	pb  = "pb"
-	sa  = "sa"
-	sb  = "sb"
-	ss  = "ss"
-	ra  = "ra"
-	rb  = "rb"
-	rr  = "rr"
-	rra = "rra"
-	rrb = "rrb"
-	rrr = "rrr"
-)
-
-var funcCompt = map[string]int{pa: 0, pb: 0, sa: 0, sb: 0, ss: 0, ra: 0, rb: 0, rr: 0, rra: 0, rrb: 0, rrr: 0}
-
 func main() {
 	stackA, stackB := funcSw.InitFuncSw()
 	args := os.Args
@@ -64,4 +48,26 @@ func isDuplicate(arr []int) {
 			log.Fatal("Error Repetition")
 		}
 	}
+}
+
+type SwConst string
+
+const (
+	pa  SwConst = "pa"
+	pb  SwConst = "pb"
+	sa  SwConst = "sa"
+	sb  SwConst = "sb"
+	ss  SwConst = "ss"
+	ra  SwConst = "ra"
+	rb  SwConst = "rb"
+	rr  SwConst = "rr"
+	rra SwConst = "rra"
+	rrr SwConst = "rrr"
+	rrb SwConst = "rrb"
+)
+
+var funcListing = []SwConst{}
+
+func (f SwConst) logFunc() {
+	funcListing = append(funcListing, f)
 }

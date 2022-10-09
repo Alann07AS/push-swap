@@ -9,22 +9,34 @@ func InitFuncSw() (*[]int, *[]int) {
 
 // push index 0 de stackA sur stackB
 func PA() {
-	stackA[0] = stackB[0]
+	push(&stackA, &stackB)
 }
 
 // push index 0 de stackB sur stackA
 func PB() {
-	stackB[0] = stackA[0]
+	push(&stackB, &stackA)
+}
+
+func push(st1, st2 *[]int) {
+	stack1, stack2 := *st1, *st2
+	if len(stack2) > 0 {
+		*st1 = append([]int{stack2[0]}, stack1...)
+		*st2 = stack2[1:]
+	}
 }
 
 // swap the two first elemnt of stackA
 func SA() {
-	swap(stackA)
+	if len(stackA) > 1 {
+		swap(stackA)
+	}
 }
 
 // swap the two first elemnt of stackB
 func SB() {
-	swap(stackB)
+	if len(stackB) > 1 {
+		swap(stackB)
+	}
 }
 
 func swap(stack []int) {

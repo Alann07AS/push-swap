@@ -24,7 +24,18 @@ func main() {
 		*stackA = append(*stackA, in)
 	}
 	// fild StackB
-	*stackB = make([]int, len(*stackA))
-	funcSw.RRA()
+	*stackB = make([]int, 0)
+
+	// test:   go run . 2 1 3 6 8 5
+	funcSw.SA()
+	funcSw.PB()
+	funcSw.PB()
+	funcSw.PB()
+	funcSw.RB()
+	funcSw.RRR()
+	funcSw.PA()
+	funcSw.PA()
+	funcSw.PA()
 	fmt.Println(*stackA, *stackB)
+	// result : [1 2 3 5 6 8] []
 }

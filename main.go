@@ -37,6 +37,7 @@ func main() {
 	funcSw.PA()
 	funcSw.PA()
 	fmt.Println(*stackA, *stackB)
+	fmt.Println(funcSw.GetLog())
 	// result : [1 2 3 5 6 8] []
 }
 
@@ -48,26 +49,4 @@ func isDuplicate(arr []int) {
 			log.Fatal("Error Repetition")
 		}
 	}
-}
-
-type SwConst string
-
-const (
-	pa  SwConst = "pa"
-	pb  SwConst = "pb"
-	sa  SwConst = "sa"
-	sb  SwConst = "sb"
-	ss  SwConst = "ss"
-	ra  SwConst = "ra"
-	rb  SwConst = "rb"
-	rr  SwConst = "rr"
-	rra SwConst = "rra"
-	rrr SwConst = "rrr"
-	rrb SwConst = "rrb"
-)
-
-var funcListing = []SwConst{}
-
-func (f SwConst) logFunc() {
-	funcListing = append(funcListing, f)
 }

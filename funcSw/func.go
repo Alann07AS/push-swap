@@ -1,5 +1,10 @@
 package funcSw
 
+import (
+	"fmt"
+	"strings"
+)
+
 // all Push Swap func_________________
 
 var stackA, stackB []int
@@ -29,7 +34,7 @@ func push(st1, st2 *[]int) {
 	}
 }
 
-// swap the two first elemnt of stackA
+// swap the two first element of stackA
 func SA() {
 	sa.logFunc()
 	if len(stackA) > 1 {
@@ -37,7 +42,7 @@ func SA() {
 	}
 }
 
-// swap the two first elemnt of stackB
+// swap the two first element of stackB
 func SB() {
 	sb.logFunc()
 	if len(stackB) > 1 {
@@ -108,6 +113,23 @@ func RRR() {
 	removeTwoLastLog()
 }
 
+// get Index A
+func GetItemA(i int) int {
+	return getItem(stackA, i)
+}
+
+// get Index B
+func GetItemB(i int) int {
+	return getItem(stackB, i)
+}
+
+func getItem(stack []int, i int) int {
+	if len(stack) != 0 {
+		return stack[i]
+	}
+	return 0
+}
+
 //______________________________//
 
 // log compt func call___________
@@ -115,17 +137,17 @@ func RRR() {
 type SwConst string
 
 const (
-	pa  SwConst = "pa"
-	pb  SwConst = "pb"
-	sa  SwConst = "sa"
-	sb  SwConst = "sb"
-	ss  SwConst = "ss"
-	ra  SwConst = "ra"
-	rb  SwConst = "rb"
-	rr  SwConst = "rr"
-	rra SwConst = "rra"
-	rrr SwConst = "rrr"
-	rrb SwConst = "rrb"
+	pa  SwConst = "pa\n"
+	pb  SwConst = "pb\n"
+	sa  SwConst = "sa\n"
+	sb  SwConst = "sb\n"
+	ss  SwConst = "ss\n"
+	ra  SwConst = "ra\n"
+	rb  SwConst = "rb\n"
+	rr  SwConst = "rr\n"
+	rra SwConst = "rra\n"
+	rrr SwConst = "rrr\n"
+	rrb SwConst = "rrb\n"
 )
 
 var funcLog = []string{}
@@ -138,9 +160,9 @@ func removeTwoLastLog() {
 	funcLog = funcLog[:len(funcLog)-2]
 }
 
-// get Log var pointer
-func GetLog() *[]string {
-	return &funcLog
+// Print all func used
+func PrintLog() {
+	fmt.Print(strings.Join(funcLog, ""))
 }
 
 //________________________//

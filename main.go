@@ -23,22 +23,27 @@ func main() {
 		}
 		*stackA = append(*stackA, in)
 	}
+
 	// fild StackB
 	*stackB = make([]int, 0)
+	// check if is dublicate
 	isDuplicate(*stackA)
-	// test:   go run . 2 1 3 6 8 5
-	funcSw.SA()
-	funcSw.PB()
-	funcSw.PB()
-	funcSw.PB()
-	funcSw.RB()
-	funcSw.RRR()
-	funcSw.PA()
-	funcSw.PA()
-	funcSw.PA()
-	fmt.Println(*stackA, *stackB)
-	fmt.Println(funcSw.GetLog())
-	// result : [1 2 3 5 6 8] []
+
+	// program SELECTION SORT
+	isMod := true
+	for isMod {
+		funcSw.PB()
+		for range *stackA {
+			if funcSw.GetItemA(0) >= funcSw.GetItemB(0) {
+				funcSw.PB()
+			} else {
+				funcSw.RA()
+			}
+		}
+	}
+
+	funcSw.PrintLog()
+	fmt.Println(stackA)
 }
 
 func isDuplicate(arr []int) {

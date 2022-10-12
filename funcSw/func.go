@@ -37,21 +37,19 @@ func push(st1, st2 *[]int) {
 // swap the two first element of stackA
 func SA() {
 	sa.logFunc()
-	if len(stackA) > 1 {
-		swap(stackA)
-	}
+	swap(stackA)
 }
 
 // swap the two first element of stackB
 func SB() {
 	sb.logFunc()
-	if len(stackB) > 1 {
-		swap(stackB)
-	}
+	swap(stackB)
 }
 
 func swap(stack []int) {
-	stack[0], stack[1] = stack[1], stack[0]
+	if len(stack) > 1 {
+		stack[0], stack[1] = stack[1], stack[0]
+	}
 }
 
 // exec SA et SB
@@ -164,5 +162,4 @@ func removeTwoLastLog() {
 func PrintLog() {
 	fmt.Print(strings.Join(funcLog, ""))
 }
-
 //________________________//
